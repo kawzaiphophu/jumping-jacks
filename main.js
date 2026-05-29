@@ -48,6 +48,12 @@ function updateUI() {
 }
 
 function onResults(results) {
+    // Dynamically adjust canvas dimensions to match the video frame
+    if (results.image && (canvasElement.width !== results.image.width || canvasElement.height !== results.image.height)) {
+        canvasElement.width = results.image.width;
+        canvasElement.height = results.image.height;
+    }
+
     // Draw background
     canvasCtx.save();
     canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
@@ -131,7 +137,8 @@ const camera = new Camera(videoElement, {
         await pose.send({image: videoElement});
     },
     width: 1280,
-    height: 720
+    height: 720,
+    facingMode: 'user'
 });
 
 camera.start();
