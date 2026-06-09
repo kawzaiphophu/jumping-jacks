@@ -6,20 +6,19 @@ const counterElement = document.getElementById('counter');
 const stateElement = document.getElementById('state');
 const resetBtn = document.getElementById('reset-btn');
 const toggleVideoBtn = document.getElementById('toggle-video-btn');
-const bgm = document.getElementById('bgm');
 
 let count = 0;
 let stage = "down";
 let jumpTimeout;
 
 function keepPlaying() {
-    if (bgm.paused) {
-        bgm.play().catch(e => console.log("Audio play error:", e));
-    }
-    clearTimeout(jumpTimeout);
-    jumpTimeout = setTimeout(() => {
-        bgm.pause();
-    }, 2000); // 2 seconds of no movement stops the music
+    // if (bgm.paused) {
+    //     bgm.play().catch(e => console.log("Audio play error:", e));
+    // }
+    // clearTimeout(jumpTimeout);
+    // jumpTimeout = setTimeout(() => {
+    //     bgm.pause();
+    // }, 2000); // 2 seconds of no movement stops the music
 }
 
 // Reset button functionality
